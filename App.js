@@ -13,6 +13,4 @@ console.log(parent, "heading");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-console.log(root, "root");
-
 root.render(parent);
