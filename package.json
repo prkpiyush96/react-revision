@@ -1,0 +1,32 @@
+{
+  "name": "react-rev",
+  "version": "1.0.0",
+  "description": "This is revision of react with namaste react course",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prkpiyush96/react-revision.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Piyush Pareek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prkpiyush96/react-revision/issues"
+  },
+  "homepage": "https://github.com/prkpiyush96/react-revision#readme",
+  "devDependencies": {
+    "parcel": "^2.10.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ]
+}
