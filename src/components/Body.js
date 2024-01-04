@@ -5,6 +5,8 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantsList, setRestaurantsList] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -13,32 +15,51 @@ const Body = () => {
   const fetchData = async () => {
     // const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9530189&lng=77.7088108');
     // const res = await data.json();
-    
     setTimeout(() => {
       setRestaurantsList(restaurants);
+      setFilteredRestaurants(restaurants);
     }, 1500);
-  }
+  };
 
   if (restaurantsList?.length === 0) {
-    return <Shimmer />
+    return <Shimmer />;
   }
 
   return (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              const filteredList = restaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurants(filteredList);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredList = restaurants.filter((res) => res.info.avgRating >= 4.2);
-            setRestaurantsList(filteredList);
+            const filteredList = restaurants.filter(
+              (res) => res.info.avgRating >= 4.2
+            );
+            setFilteredRestaurants(filteredList);
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
-      <div className="search">Search</div>
       <div className="res-container">
-        {restaurantsList?.map((restaurant) => (
+        {filteredRestaurants?.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
