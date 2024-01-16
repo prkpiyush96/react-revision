@@ -74,3 +74,21 @@
 .filter {
     display: flex;
 }
+
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 380px;
+}
+
+.menu-item-image {
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+}
